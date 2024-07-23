@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nttdata.pruebatecnica.cliente_persona_service.exceptions.ResourceNotFoundException;
@@ -67,6 +68,13 @@ public class ClienteController {
             log.error("Client with id {} not found", id);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+    
+    @GetMapping("/buscar")
+    public ResponseEntity<ClienteDTO> getClienteBuscar(@RequestParam String search) {
+        log.info("Searching for cliente with term: {}", search);
+        ClienteDTO clienteDTO = this.clienteService.getTermSearch(search);
+        return new ResponseEntity<>(clienteDTO, HttpStatus.OK);
     }
 
 }

@@ -35,5 +35,10 @@ public class DomainClienteService implements ClienteService {
 		this.clienteRepository.deleteCliente(id);
 	}
 
+	@Override
+	public ClienteDTO getTermSearch(String search) {
+		// TODO Auto-generated method stub
+		return this.clienteRepository.getTermSearch(search);
+	}
 
 }

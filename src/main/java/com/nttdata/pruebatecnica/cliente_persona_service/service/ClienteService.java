@@ -6,5 +6,6 @@ public interface ClienteService {
 	Iterable<ClienteDTO> getClientes();
 	ClienteDTO getClienteById(Long id);
 	ClienteDTO saveCliente(ClienteDTO clienteDto);
+	ClienteDTO getTermSearch(String search);
     void deleteCliente(Long id);
 }

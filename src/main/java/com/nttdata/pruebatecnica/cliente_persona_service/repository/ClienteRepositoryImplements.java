@@ -1,5 +1,6 @@
 package com.nttdata.pruebatecnica.cliente_persona_service.repository;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
 import com.nttdata.pruebatecnica.cliente_persona_service.entity.Cliente;
@@ -50,6 +51,17 @@ public class ClienteRepositoryImplements implements ClienteRepository {
                 ()-> new ResourceNotFoundException("Recurso no encontrado")
         );
         this.clienteRepositorySqlServer.deleteById(productEntity.getPersonaid());
+	}
+
+	@Override
+	public ClienteDTO getTermSearch(String search) {
+		// TODO Auto-generated method stub
+		log.info("Buscando en cuentas por el termino: "+search);
+		List<Cliente> clientes = this.clienteRepositorySqlServer.findBySearchTerm(search);
+	    if (clientes.isEmpty()) {
+	        throw new ResourceNotFoundException("Recurso no encontrado");
+	    }
+	    return this.clienteMapper.toClienteDTO(clientes.get(0));
 	}
 
 }

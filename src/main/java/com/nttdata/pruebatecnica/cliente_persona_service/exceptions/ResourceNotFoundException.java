@@ -1,7 +1,12 @@
 package com.nttdata.pruebatecnica.cliente_persona_service.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException {
-    public ResourceNotFoundException() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public ResourceNotFoundException() {
         super();
     }
 
