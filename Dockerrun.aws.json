@@ -1,0 +1,13 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "rvegas100592/clientepersonaservice",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "8095",
+      "HostPort": "8095"
+    }
+  ]
+}
